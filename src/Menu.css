@@ -1,0 +1,27 @@
+.menu {
+    background-color: #12151f;
+
+    display: inline-block;
+    width: 300px;
+    height: 500px;
+
+    position: fixed;
+    left: 13%;
+    bottom: 30%;
+
+    border: 1px solid #12151f;
+    border-radius: 30px;
+
+    text-align: center;
+
+}
+
+.menuText {
+    color: white;
+    display: inline-block;
+    margin-top: 40px;
+
+    font-family: "Cascadia Mono";
+    font-size: xx-large;
+    font-weight: bolder;
+}
