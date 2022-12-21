@@ -1,0 +1,24 @@
+
+
+.logo {
+    display: block;
+
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
+
+.path {
+    stroke-dasharray: 4500;
+    stroke-dashoffset: 4500;
+    animation: dash 15s linear infinite;
+}
+
+@keyframes dash {
+    50% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 4500;
+    }
+}

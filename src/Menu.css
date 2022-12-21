@@ -1,5 +1,5 @@
 .menu {
-    background-color: #12151f;
+    background-color: #dcdcdc;
 
     display: inline-block;
     width: 300px;
@@ -9,19 +9,32 @@
     left: 13%;
     bottom: 30%;
 
-    border: 1px solid #12151f;
+    border: 4px solid #212121;
     border-radius: 30px;
 
     text-align: center;
 
+    user-select: none;
+
 }
 
 .menuText {
-    color: white;
+    color: #6c6c6c;
     display: inline-block;
     margin-top: 40px;
 
     font-family: "Cascadia Mono";
     font-size: xx-large;
     font-weight: bolder;
+}
+
+@keyframes blink {
+    0% {color: #6c6c6c}
+    50% {color: #dcdcdc}
+    100% {color: #6c6c6c}
+}
+
+.typeBar {
+    display: inline-block;
+    animation: blink 0.7s step-start infinite alternate;
 }

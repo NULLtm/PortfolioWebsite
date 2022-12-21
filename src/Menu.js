@@ -4,7 +4,8 @@ import './Menu.css'
 const Menu = () => {
     return (
         <div className="menu">
-            <span className="menuText">NULLtheMOMENT</span>
+            <span className="menuText">Owen Boseley</span>
+            <span className="typeBar menuText">_</span>
         </div>
     );
 }
