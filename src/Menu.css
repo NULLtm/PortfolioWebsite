@@ -7,7 +7,7 @@
 
     position: fixed;
     left: 13%;
-    bottom: 30%;
+    top: 15%;
 
     border: 3px solid #212121;
     border-radius: 30px;
@@ -25,7 +25,7 @@
 
 .menuItem {
     color: #000000;
-    font-family: "Cascadia Mono";
+    font-family: mainFont;
     display: block;
     margin-top: 40px;
 }
@@ -51,4 +51,9 @@
 .typeBar {
     display: inline-block;
     animation: blink 0.7s step-start infinite alternate;
+}
+
+@font-face {
+    font-family: mainFont;
+    src: url("./fonts/cour.ttf");
 }

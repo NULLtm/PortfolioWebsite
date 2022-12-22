@@ -1,11 +1,11 @@
 
 
 .logo {
-    display: block;
+    display: inline-block;
 
     position: fixed;
-    left: 10px;
-    top: 10px;
+    left: 0%;
+    top: -5%;
 }
 
 .path1 {
