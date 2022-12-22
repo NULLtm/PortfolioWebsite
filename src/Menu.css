@@ -9,7 +9,7 @@
     left: 13%;
     bottom: 30%;
 
-    border: 4px solid #212121;
+    border: 3px solid #212121;
     border-radius: 30px;
 
     text-align: center;
@@ -18,20 +18,34 @@
 
 }
 
-.menuText {
-    color: #6c6c6c;
-    display: inline-block;
-    margin-top: 40px;
-
-    font-family: "Cascadia Mono";
+.titleText {
     font-size: xx-large;
     font-weight: bolder;
 }
 
+.menuItem {
+    color: #000000;
+    font-family: "Cascadia Mono";
+    display: block;
+    margin-top: 40px;
+}
+
+.menuButton {
+    z-index: 10;
+    font-size: larger;
+    transition: font-size 2s;
+}
+
+.menuButton:hover {
+    font-size: xx-large;
+}
+
 @keyframes blink {
-    0% {color: #6c6c6c}
+    0% {color: #000000
+    }
     50% {color: #dcdcdc}
-    100% {color: #6c6c6c}
+    100% {color: #000000
+    }
 }
 
 .typeBar {
