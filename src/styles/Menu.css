@@ -6,8 +6,8 @@
     height: 500px;
 
     position: fixed;
-    left: 13%;
-    bottom: 30%;
+    left: 100px;
+    top: 180px;
 
     border: 3px solid #212121;
     border-radius: 30px;
@@ -15,29 +15,42 @@
     text-align: center;
 
     user-select: none;
-
 }
 
 .titleText {
     font-size: xx-large;
+    font-family: "Cascadia Mono", serif;
     font-weight: bolder;
 }
 
 .menuItem {
     color: #000000;
-    font-family: "Cascadia Mono";
     display: block;
     margin-top: 40px;
 }
 
 .menuButton {
-    z-index: 10;
-    font-size: larger;
-    transition: font-size 2s;
+
+    font-family: "Cascadia Mono", serif;
+    color: #000000;
+    font-size: 19px;
+    transition: font-size 1s;
+
+    border: none;
+    background: none;
+
+    left: 50%;
 }
 
 .menuButton:hover {
-    font-size: xx-large;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.menuButton:active {
+    transition: font-size 250ms;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 @keyframes blink {
