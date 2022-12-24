@@ -1,89 +1,48 @@
 import '../styles/AboutMe.css'
+import OptionContainer from "./SubComponents/OptionContainer";
 
 const guideText = "*please select all options";
 
 const AboutMe = () => {
     return (
         <div className="aboutContainer">
-            <div className="selectorContainer" id="modelSelector">
-                <div className="selectorText">
-                    <span className="selectorTitle1">Model.</span> <span className="selectorTitle2">Which is best for you?</span>
-                </div>
-                <div className="selectorSubText">{guideText}</div>
-                <div className="selectors">
-                    <a href={"#majorSelector"} className="selector">
-                        <div className="selectorPrimaryLabels">
-                            <div className="selectorPrimaryLabel">Human</div>
-                            <div className="selectorPrimaryLabelSubtext">19 yr, 5'8"</div>
-                        </div>
-                        <div className="selectorSecondaryLabels">
-                            <div>Owen Boseley</div>
-                            <div>Red Hair</div>
-                            <div>Green Eyes</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div className="selectorContainer" id="majorSelector">
-                <div className="selectorText">
-                    <span className="selectorTitle1">Major.</span> <span className="selectorTitle2">Choose one...or two.</span>
-                </div>
-                <div className="selectorSubText">{guideText}</div>
-                <div className="selectors">
-                    <a href="" className="selector">
-                        <div className="selectorPrimaryLabels">
-                            <div className="selectorPrimaryLabel">Comp Sci</div>
-                            <div className="selectorPrimaryLabelSubtext">2nd yr, 4.0</div>
-                        </div>
-                        <div className="selectorSecondaryLabels">
-                            <div>UW Seattle</div>
-                            <div>Algorithms</div>
-                            <div>Web Dev</div>
-                        </div>
-                    </a>
-                    <a href="" className="selector">
-                        <div className="selectorPrimaryLabels">
-                            <div className="selectorPrimaryLabel">Math</div>
-                            <div className="selectorPrimaryLabelSubtext">2nd yr, 4.0</div>
-                        </div>
-                        <div className="selectorSecondaryLabels">
-                            <div>UW Seattle</div>
-                            <div>Proofs</div>
-                            <div>Linear Alg.</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div className="selectorContainer">
-                <div className="selectorText">
-                    <span className="selectorTitle1">Skills.</span> <span className="selectorTitle2">Help yourself.</span>
-                </div>
-                <div className="selectorSubText">{guideText}</div>
-                <div className="selectors">
-                    <a href="" className="selector">
-                        <div className="selectorPrimaryLabels">
-                            <div className="selectorPrimaryLabel">Comp Sci</div>
-                            <div className="selectorPrimaryLabelSubtext">2nd yr, 4.0</div>
-                        </div>
-                        <div className="selectorSecondaryLabels">
-                            <div>UW Seattle</div>
-                            <div>Algorithms</div>
-                            <div>Web Dev</div>
-                        </div>
-                    </a>
-                    <a href="" className="selector">
-                        <div className="selectorPrimaryLabels">
-                            <div className="selectorPrimaryLabel">Math</div>
-                            <div className="selectorPrimaryLabelSubtext">2nd yr, 4.0</div>
-                        </div>
-                        <div className="selectorSecondaryLabels">
-                            <div>UW Seattle</div>
-                            <div>Proofs</div>
-                            <div>Linear Alg.</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            <OptionContainer id="modelContainer" numOptions={1} title1="Model." title2="Which is best for you?"
+                             nextOptionContainer="majorContainer"
+                             options={[{primaryLabel: "Human",
+                                 primaryLabelSubtext: "19 yr, 5'8",
+                                 label1: "Owen Boseley",
+                                 label2: "Red Hair",
+                                 label3: "Green Eyes"
+                             }]}
+            />
+            <OptionContainer id="majorContainer" numOptions={2} title1="Major." title2="Choose one...or two."
+                             nextOptionContainer="skillContainer"
+                             options={[{primaryLabel: "Comp Sci",
+                                 primaryLabelSubtext: "2nd yr, 4.0",
+                                 label1: "Algorithms",
+                                 label2: "Web Dev",
+                                 label3: "CSCP"
+                             }, {primaryLabel: "Math",
+                                     primaryLabelSubtext: "2nd yr, 4.0",
+                                     label1: "Proofs",
+                                     label2: "Linear Alg.",
+                                     label3: ""
+                             }]}
+            />
+            <OptionContainer id="skillContainer" numOptions={2} title1="Major." title2="Choose one...or two."
+                             nextOptionContainer="skillContainer"
+                             options={[{primaryLabel: "Comp Sci",
+                                 primaryLabelSubtext: "2nd yr, 4.0",
+                                 label1: "Algorithms",
+                                 label2: "Web Dev",
+                                 label3: "CSCP"
+                             }, {primaryLabel: "Math",
+                                 primaryLabelSubtext: "2nd yr, 4.0",
+                                 label1: "Proofs",
+                                 label2: "Linear Alg.",
+                                 label3: ""
+                             }]}
+            />
         </div>
     );
 }
