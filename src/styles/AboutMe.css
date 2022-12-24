@@ -1,0 +1,85 @@
+
+
+.aboutContainer {
+    /*background-color: #d2d2cc;*/
+
+    overflow-y: hidden;
+
+    width: 500px;
+
+    position: fixed;
+    left: 435px;
+
+    text-align: center;
+}
+
+.selectorContainer {
+    margin-top: 200px;
+}
+
+.selector {
+
+    margin-top: 100px;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+
+    width: 50%;
+
+    margin-left: 25%;
+
+    padding-right: 11px;
+}
+
+.selector:hover {
+    border-color: #5e5e5e;
+}
+
+.selectorText {
+    font-family: "Cascadia Mono", sans-serif;
+    font-size: 29px;
+    word-spacing: -6px;
+}
+
+.selectorTitle1 {
+    color: black;
+    font-weight: bolder;
+}
+
+.selectorTitle2 {
+    color: gray;
+    font-weight: normal;
+}
+
+.selectorPrimaryLabel {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+
+
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.selectorPrimaryLabelSubtext {
+    color: #5e5e5e;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.selectorSecondaryLabels {
+    color: #5e5e5e;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: right;
+
+    position: absolute;
+    left: 300px;
+    top: 360px;
+}
