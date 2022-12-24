@@ -7,7 +7,7 @@ const Logo = () => {
             <svg xmlns="http://www.w3.org/2000/svg"
                  width="14.5in" height="9in"
                  viewBox="0 0 1920 1080" className="logo">
-                <path className="path1" fill="none" stroke="black" stroke-width="4"
+                <path className="path1" fill="none" stroke="gray" stroke-width="4"
                       d="M 722.00,316.00
            C 722.00,316.00 754.00,288.57 754.00,288.57
              754.00,288.57 786.00,261.00 786.00,261.00

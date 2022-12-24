@@ -9,7 +9,7 @@
     left: 100px;
     top: 180px;
 
-    border: 3px solid #212121;
+    border: 1px solid #808080;
     border-radius: 30px;
 
     text-align: center;
@@ -32,7 +32,7 @@
 .menuButton {
 
     font-family: "Cascadia Mono", serif;
-    color: #000000;
+    color: #8a8a8a;
     font-size: 19px;
     transition: font-size 1s;
 
@@ -45,8 +45,7 @@
 }
 
 .menuButton:hover {
-    font-size: 21px;
-    font-weight: bold;
+    color: black;
 }
 
 .menuButton:active {
