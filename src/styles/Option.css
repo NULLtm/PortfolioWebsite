@@ -1,6 +1,6 @@
 .selector {
 
-    display: block;
+    display: inline-block;
 
     border: 1px solid #bdbdbd;
     border-radius: 8px;
@@ -76,21 +76,4 @@
     height: 100%;
 
     margin-top: 20px;
-}
-
-.moreInfoButton {
-    background: none;
-
-    border: 1px solid #838383;
-    border-radius: 4px;
-
-    display: inline-block;
-
-    position: relative;
-    top: -55px;
-    left: 160px;
-}
-
-.moreInfoButton:hover {
-    border-color: black;
 }

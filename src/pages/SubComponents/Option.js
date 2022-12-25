@@ -1,5 +1,6 @@
 import "../../styles/Option.css";
 import {useState} from "react";
+import InfoComponent from "./InfoComponent";
 
 const Option = (props) => {
 
@@ -21,7 +22,7 @@ const Option = (props) => {
                     <div>{props.label3}</div>
                 </div>
             </button>
-            <button className="moreInfoButton">+</button>
+            <InfoComponent/>
         </>
     );
 }
