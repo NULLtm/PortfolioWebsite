@@ -1,7 +1,7 @@
 
 
 .aboutContainer {
-    overflow-y: hidden;
+    overflow-y: scroll;
 
     scroll-behavior: smooth;
 

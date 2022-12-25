@@ -1,6 +1,7 @@
 import Option from "./Option";
 import "../../styles/OptionContainer.css";
 import {useState} from "react";
+import InfoComponent from "./InfoComponent";
 
 
 const OptionContainer = (props) => {

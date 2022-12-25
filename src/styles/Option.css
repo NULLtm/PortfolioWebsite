@@ -11,6 +11,8 @@
     user-focus: none;
 
     background: none;
+
+    margin-top: 5px;
 }
 .selectorSubText {
     text-align: right;
