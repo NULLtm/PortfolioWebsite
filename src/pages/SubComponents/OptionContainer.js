@@ -7,10 +7,9 @@ const OptionContainer = (props) => {
 
     const [numSelected, setNumSelected] = useState(1);
 
-    const onSelect = (e) => {
-        if(e.target.style.borderWidth !== "3px") {
-            e.target.style.borderWidth = "3px";
-            e.target.style.borderColor = "black";
+    const onSelect = (e, hasClicked, setHasClicked) => {
+        if(!hasClicked) {
+            setHasClicked(true);
             setNumSelected((prev) => prev+1);
             if(numSelected >= props.numOptions) {
                 document.getElementById(props.nextOptionContainer).scrollIntoView();
