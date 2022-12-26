@@ -17,8 +17,9 @@ const InfoComponent = (props) => {
 
     const closeClicked = (e) => {
         setIsActive(false);
-        refInfo.current.style.display = "none";
-        refClose.current.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});
+        refClose.current.scrollIntoView({behavior:"smooth",block:"center",inline:"end"});
+        setTimeout(()=>{refInfo.current.style.display = "none";},500);
+
     }
 
     return (
@@ -28,9 +29,9 @@ const InfoComponent = (props) => {
             <svg ref={refInfo} className="infoBox">
                 <rect x="98" y="150" width="380px" height="290px" fill="none" strokeWidth="3px"/>
                 <line x1="10" y1="148" x2="90" y2="148" stroke="black" strokeWidth="3px"/>
-                <button className="moreInfoClose" onMouseOver={() => {setCloseHovered(true)}} onMouseLeave={() => {setCloseHovered(false)}} onClick={closeClicked}
-                        style={{borderColor: !isActive ? "black" : (closeHovered ? "black" : "gray"), borderWidth: !isActive ? "3px" : "1px"}}>-</button>
             </svg>
+            <button className="moreInfoClose" onMouseOver={() => {setCloseHovered(true)}} onMouseLeave={() => {setCloseHovered(false)}} onClick={closeClicked}
+                    style={{borderColor: !isActive ? "black" : (closeHovered ? "black" : "gray"), borderWidth: !isActive ? "3px" : "1px"}}>-</button>
 
         </>
     );

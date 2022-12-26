@@ -8,7 +8,7 @@ const Option = (props) => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <>
+        <div className="optionContainer">
             <button onMouseOver={() => {setHovered(true)}} onMouseLeave={() => {setHovered(false)}}
                     style={{borderColor: hasClicked ? "black" : (hovered ? "black" : "gray"), borderWidth: hasClicked ? "3px" : "1px"}}
                     onClick={(e)=>{props.onClick(e,hasClicked,setHasClicked)}} className="selector">
@@ -23,7 +23,7 @@ const Option = (props) => {
                 </div>
             </button>
             <InfoComponent/>
-        </>
+        </div>
     );
 }
 
