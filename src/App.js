@@ -9,17 +9,20 @@ import Links from "./pages/Links";
 
 function App() {
   return (
-      <HashRouter>
-          <Routes>
-              <Route path="/" element={<Menu/>}>
-                  <Route index element={<Logo/>} />
-                  <Route path="about_me" element={<AboutMe/>} />
-                  <Route path="projects" element={<Projects/>} />
-                  <Route path="links" element={<Links/>} />
-                  <Route path="*" element={<NoPage/>} />
-              </Route>
-          </Routes>
-      </HashRouter>
+      <BrowserRouter>
+          <HashRouter basename="/">
+              <Routes>
+                  <Route path="/" element={<Menu/>}>
+                      <Route index element={<Logo/>} />
+                      <Route path="about_me" element={<AboutMe/>} />
+                      <Route path="projects" element={<Projects/>} />
+                      <Route path="links" element={<Links/>} />
+                      <Route path="*" element={<NoPage/>} />
+                  </Route>
+              </Routes>
+          </HashRouter>
+      </BrowserRouter>
+
   );
 }
 
