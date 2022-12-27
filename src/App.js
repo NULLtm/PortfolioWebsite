@@ -1,7 +1,7 @@
 import './styles/App.css';
 import Menu from './pages/Menu';
 import Logo from './pages/Logo';
-import {BrowserRouter, createBrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
 import NoPage from "./pages/NoPage";
@@ -9,7 +9,7 @@ import Links from "./pages/Links";
 
 function App() {
   return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter>
           <Routes>
               <Route path="/" element={<Menu/>}>
                   <Route index element={<Logo/>} />
@@ -19,7 +19,7 @@ function App() {
                   <Route path="*" element={<NoPage/>} />
               </Route>
           </Routes>
-      </BrowserRouter>
+      </HashRouter>
   );
 }
 
