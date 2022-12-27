@@ -5,10 +5,8 @@
     border-radius: 4px;
 
     display: inline-block;
-
-    position: relative;
-    top: -55px;
-    left: 160px;
+    width: 20px;
+    height: 19px;
 }
 
 .moreInfoClose {
@@ -17,22 +15,22 @@
     border: 1px solid #838383;
     border-radius: 4px;
 
-    display: inline-block;
+    display: block;
 
     position: relative;
-    top: -560px;
-    left: 290px;
+    top: -60px;
+    left: 460px;
 }
 
 .infoBox {
     height: 500px;
     width: 500px;
 
-    display: inline-block;
+    display: none;
 
-    position: relative;
-    left: 411px;
-    top: -215px;
+    position: absolute;
+    left: 394px;
+    top: 62px;
 
     stroke: black;
     fill: black;
@@ -42,8 +40,6 @@
     stroke-dasharray: 100;
     stroke-dashoffset: 0;
     animation: dash 5s linear infinite;
-
-    display: none;
 }
 
 @keyframes dash {

@@ -11,7 +11,7 @@ const InfoComponent = (props) => {
 
     const openClicked = (e) => {
         setIsActive(true);
-        refInfo.current.style.display = "inline-block";
+        refInfo.current.style.display = "block";
         refInfo.current.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});
     }
 
@@ -26,13 +26,6 @@ const InfoComponent = (props) => {
         <>
             <button ref={refClose} className="moreInfoButton" onMouseOver={() => {setOpenHovered(true)}} onMouseLeave={() => {setOpenHovered(false)}} onClick={openClicked}
                     style={{borderColor: isActive ? "black" : (openHovered ? "black" : "gray"), borderWidth: isActive ? "3px" : "1px"}}>+</button>
-            <svg ref={refInfo} className="infoBox">
-                <rect x="98" y="150" width="380px" height="290px" fill="none" strokeWidth="3px"/>
-                <line x1="10" y1="148" x2="90" y2="148" stroke="black" strokeWidth="3px"/>
-            </svg>
-            <button className="moreInfoClose" onMouseOver={() => {setCloseHovered(true)}} onMouseLeave={() => {setCloseHovered(false)}} onClick={closeClicked}
-                    style={{borderColor: !isActive ? "black" : (closeHovered ? "black" : "gray"), borderWidth: !isActive ? "3px" : "1px"}}>-</button>
-
         </>
     );
 }
