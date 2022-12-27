@@ -9,8 +9,7 @@ import Links from "./pages/Links";
 
 function App() {
   return (
-      <BrowserRouter>
-          <HashRouter basename="/">
+          <HashRouter>
               <Routes>
                   <Route path="/" element={<Menu/>}>
                       <Route index element={<Logo/>} />
@@ -21,8 +20,6 @@ function App() {
                   </Route>
               </Routes>
           </HashRouter>
-      </BrowserRouter>
-
   );
 }
 
