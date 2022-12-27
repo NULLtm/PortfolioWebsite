@@ -1,27 +1,23 @@
 .selector {
 
-    display: block;
-
-    margin-top: 10px;
+    display: inline-block;
 
     border: 1px solid #bdbdbd;
     border-radius: 8px;
 
     width: 50%;
 
-    margin-left: 25%;
-
-    padding-right: 11px;
-
     text-decoration: none;
+    user-focus: none;
+
+    background: none;
+
+    margin-top: 5px;
 }
 .selectorSubText {
     text-align: right;
     font-size: 11px;
     color: gray;
-
-    padding-right: 20px;
-    padding-top: 10px;
 }
 
 .selector:hover {
@@ -48,27 +44,26 @@
     color: black;
     font-size: 20px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
 
 
-    margin-left: 25px;
-    margin-top: 20px;
+    display: block;
+    width: 100%;
 }
 
 .selectorPrimaryLabels {
     display: inline-block;
-
-    margin-left: -12px;
+    width: 50%;
+    height: 100%;
 }
 
 .selectorPrimaryLabelSubtext {
     color: #5e5e5e;
     font-size: 14px;
     font-weight: normal;
-    text-align: left;
+    text-align: center;
 
-    margin-top: 5px;
-    margin-left: 30px;
+    display: block;
     margin-bottom: 20px;
 }
 
@@ -79,6 +74,12 @@
     text-align: right;
 
     display: inline-block;
+    width: 50%;
+    height: 100%;
 
-    margin-left: 70px;
+    margin-top: 20px;
+}
+
+.optionContainer {
+    background-color: aquamarine;
 }

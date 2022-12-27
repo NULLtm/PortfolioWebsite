@@ -1,0 +1,49 @@
+.moreInfoButton {
+    background: none;
+
+    border: 1px solid #838383;
+    border-radius: 4px;
+
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+}
+
+.moreInfoClose {
+    background: none;
+
+    border: 1px solid #838383;
+    border-radius: 4px;
+
+    display: block;
+
+    position: relative;
+    top: -60px;
+    left: 460px;
+}
+
+.infoBox {
+    height: 500px;
+    width: 500px;
+
+    display: none;
+
+    position: absolute;
+    left: 394px;
+    top: 62px;
+
+    stroke: black;
+    fill: black;
+    stroke-width: 6px;
+    border-radius: 3px;
+
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    animation: dash 5s linear infinite;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}

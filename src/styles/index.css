@@ -16,3 +16,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Cascadia Mono";
+  src: url("../fonts/CascadiaMono.ttf");
+}
