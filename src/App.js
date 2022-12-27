@@ -9,7 +9,7 @@ import Links from "./pages/Links";
 
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Routes>
               <Route path="/" element={<Menu/>}>
                   <Route index element={<Logo/>} />
