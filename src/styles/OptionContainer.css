@@ -3,8 +3,6 @@
     margin-bottom: 200px;
 
     user-select: none;
-
-    overflow-x: hidden;
 }
 
 .selectors {
@@ -12,34 +10,13 @@
     margin-bottom: 300px;
 }
 
-.selector {
-
-    display: block;
-
-    margin-top: -10px;
-
-    border: 1px solid #bdbdbd;
-    border-radius: 8px;
-
-    width: 50%;
-
-    margin-left: 15%;
-
-    padding-right: 11px;
-
-    text-decoration: none;
-}
 .selectorSubText {
     text-align: right;
     font-size: 11px;
     color: gray;
 
     padding-right: 20px;
-    padding-top: 10px;
-}
-
-.selector:hover {
-    border-color: #5e5e5e;
+    padding-top: 9px;
 }
 
 .selectorText {
