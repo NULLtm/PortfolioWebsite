@@ -1,7 +1,9 @@
+import "../styles/Links.css";
 
 const Links = () => {
     return (
-        <div>LINKS</div>
+        <div className="page">
+        </div>
     );
 }
 

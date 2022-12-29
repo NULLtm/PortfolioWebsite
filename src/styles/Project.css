@@ -1,0 +1,15 @@
+
+.projectContainer {
+
+    width: 60%;
+    height: 100px;
+
+    margin-left: 20%;
+    margin-top: 50px;
+
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+
+    background: none;
+}
+

@@ -1,7 +1,7 @@
 
 const NoPage = () => {
     return (
-        <div>404 Error</div>
+        <div className="page">404 Error</div>
     );
 }
 

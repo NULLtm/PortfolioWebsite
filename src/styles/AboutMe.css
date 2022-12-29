@@ -1,20 +1,3 @@
-
-
-.aboutContainer {
-    overflow-y: scroll;
-
-    scroll-behavior: smooth;
-
-    width: 500px;
-    height: 50%;
-
-    position: fixed;
-    left: 435px;
-    top: 192px;
-
-    text-align: center;
-}
-
 #modelSelector {
     margin-top: 50px;
 }
