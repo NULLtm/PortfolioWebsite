@@ -5,7 +5,7 @@ const guideText = "*please select all options";
 
 const AboutMe = () => {
     return (
-        <div className="page">
+        <div className="page aboutContainer">
             <OptionContainer id="modelContainer" numOptions={1} title1="Model." title2="Which is best for you?"
                              nextOptionContainer="majorContainer"
                              options={[{primaryLabel: "Human",
