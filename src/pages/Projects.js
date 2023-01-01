@@ -22,7 +22,7 @@ const Projects = () => {
         <div className="page projectsPage">
             {loaded ? (
                 [...Array(data.length)].map((e, i) =>
-                  <Project title={data[i].name}
+                  <Project key={i.toString()} title={data[i].name}
                   status={data[i].private ? "Private" : "Public"}
                            desc={data[i].description}
                            lang={data[i].language}
