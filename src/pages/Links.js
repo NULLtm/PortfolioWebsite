@@ -199,7 +199,10 @@ const Links = () => {
         button1.size(24,24);
         button1.style("border", "none");
         button1.style("background", "none");
-        icon1 = p5.loadImage("images/linkedinIcon.png");
+        p5.loadImage("./icon.png", img => {
+            p5.image(img, 0, 0);
+            p5.redraw();
+        })
     }
 
     const draw = (p5) => {
@@ -213,8 +216,6 @@ const Links = () => {
             myParticles[whichParticleIsGrabbed].px = p5.mouseX;
             myParticles[whichParticleIsGrabbed].py = p5.mouseY;
         }
-
-        p5.image(icon1, myParticles[nPoints-1].px, myParticles[nPoints-1].py, 24, 24);
         button1.position(myParticles[nPoints-1].px+410, myParticles[nPoints-1].py+190);
 
         for (var i=0; i<mySprings.length; i++) {
