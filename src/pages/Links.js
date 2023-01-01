@@ -1,22 +1,65 @@
 import "../styles/Links.css";
+import Sketch from "react-p5";
+
+
+let icon1;
+
+const gravity = 0.9;
+const mass = 2.0;
+
+function Spring2D(p5, xpos, ypos, m, g) {
+    this.x = xpos;// The x- and y-coordinates
+    this.y = ypos;
+    this.vx = 0; // The x- and y-axis velocities
+    this.vy = 0;
+    this.mass = m;
+    this.gravity = g;
+    this.radius = 30;
+    this.stiffness = 0.2;
+    this.damping = 0.7;
+
+    this.update = function(targetX, targetY) {
+        let forceX = (targetX - this.x) * this.stiffness;
+        let ax = forceX / this.mass;
+        this.vx = this.damping * (this.vx + ax);
+        this.x += this.vx;
+        let forceY = (targetY - this.y) * this.stiffness;
+        forceY += this.gravity;
+        let ay = forceY / this.mass;
+        this.vy = this.damping * (this.vy + ay);
+        this.y += this.vy;
+    }
+
+    this.display = function(nx, ny) {
+        p5.ellipse(this.x, this.y, this.radius * 2, this.radius * 2);
+        p5.stroke(255);
+        p5.line(this.x, this.y, nx, ny);
+    }
+}
 
 const Links = () => {
+
+    const setup = (p5, canvasParentRef) => {
+        // use parent to render the canvas in this ref
+        // (without that p5 will render the canvas outside of your component)
+        p5.createCanvas(500, 500).parent(canvasParentRef);
+
+        icon1 = new Spring2D(p5, 0, 250, mass, gravity);
+    }
+
+    const draw = (p5) => {
+        p5.background(0);
+        icon1.update(p5.mouseX,p5.mouseY);
+        icon1.display(p5.mouseX, p5.mouseY);
+        // NOTE: Do not use setState in the draw function or in functions that are executed
+        // in the draw function...
+        // please use normal variables or class properties for these purposes
+    }
+
+
     return (
         <div className="page linksContainer">
-            <svg className="linkWheel">
-                <circle cx="250" cy="205" r="200" className="linkWheel-wheel"/>
-                <circle cx="250" cy="205" r="160" className="linkWheel-wheel"/>
-            </svg>
-            <a>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
-                     fill="currentColor" className="mercado-match" width="24" height="24" focusable="false">
-                    <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-            </a>
-            <a>
-                <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32"
-                     data-view-component="true" className="octicon octicon-mark-github v-align-middle">
-                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            </a>
+            <Sketch className="linksContainer-linkCanvas" setup={setup} draw={draw}/>
         </div>
     );
 }
