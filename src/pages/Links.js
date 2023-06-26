@@ -1,67 +1,89 @@
 import "../styles/Links.css";
 import Sketch from "react-p5";
 
-let myParticles = [];
-let mySprings = [];
-let button1, icon1;
 
-const nPoints = 7;
+const ropes = [];
+
+
+
 const restDis = 15;
 const width = 500;
 const height = 500;
 
-// The index in the particle array, of the one the user has clicked.
-let whichParticleIsGrabbed = -1;
-
-//-------------------------
-function createParticles(p5){
-
-    for (var i=0; i<nPoints; i++) {
-        var rx = 250 + restDis*i;
-        var ry = 0;
-        var aParticle = new Particle(p5);
-        aParticle.set(rx,ry);
-        aParticle.bPeriodicBoundaries = false;
-        aParticle.bHardBoundaries = true;
-        if(i===0) aParticle.bFixed = true;
-        myParticles.push(aParticle);
-    }
-
-}
-
-//-------------------------
-function createSpringMeshConnectingParticles(p5){
-    // Stitch the particles together into a mesh,
-    // by connecting them to their neighbors with springs.
-
-    // The spring constant.
-    var K = 0.01;
-
-    // stitch the particles together into a blob.
-    for (var i=0; i<(nPoints-1); i++) {
-        var p = myParticles[i];
-        var q = myParticles[i+1];
-        var aSpring = new Spring(p5);
-        aSpring.set (p, q, K);
-        mySprings.push(aSpring);
-    }
-}
-
-function mousePressed(p5) {
-    // If the mouse is pressed,
-    // find the closest particle, and store its index.
-    whichParticleIsGrabbed = -1;
-    var maxDist = 10;
-    var dx = p5.mouseX - myParticles[nPoints-1].px;
-    var dy = p5.mouseY - myParticles[nPoints-1].py;
-    var dh = Math.sqrt(dx*dx + dy*dy);
-    if (dh < maxDist) {
-        whichParticleIsGrabbed = nPoints-1;
-    }
-}
-
-
 //==========================================================
+function Rope(xPos, nPoints, link, message) {
+    this.particles = [];
+    this.button = null;
+    this.xPos = xPos;
+    this.nPoints = nPoints;
+    this.springs = [];
+    this.link = link;
+    this.message = message;
+
+    this.update = function(p5) {
+        for (var i=0; i < this.particles.length; i++) {
+            this.particles[i].update(); // update all locations
+        }
+
+        this.button.position(this.particles[this.nPoints-1].px + 410,this.particles[this.nPoints-1].py + 190);
+
+        
+        for (var i=0; i< this.springs.length; i++) {
+            this.springs[i].update(); // draw all springs
+        }
+
+        for (var i=0; i< this.springs.length; i++) {
+            this.springs[i].render(); // draw all springs
+        }
+
+
+    }
+
+    this.gotoLink = function(){
+        document.location.href = link;
+    }
+
+    this.createParticles = function(p5) {
+
+        this.button = p5.createButton(this.message);
+        this.button.mousePressed(this.gotoLink);
+        this.button.size(50,50);
+
+        for (var i=0; i< this.nPoints; i++) {
+            var rx = this.xPos + restDis*i;
+            var ry = 0;
+            var aParticle = new Particle(p5);
+            aParticle.set(rx,ry);
+            aParticle.bPeriodicBoundaries = false;
+            aParticle.bHardBoundaries = true;
+            if(i===0) aParticle.bFixed = true;
+            this.particles.push(aParticle);
+        }
+    }
+
+    this.createSpringMeshConnectingParticles = function(p5){
+        // Stitch the particles together into a mesh,
+        // by connecting them to their neighbors with springs.
+    
+        // The spring constant.
+        var K = 0.01;
+    
+        // stitch the particles together into a blob.
+        for (var i=0; i<(this.nPoints-1); i++) {
+            var p = this.particles[i];
+            var q = this.particles[i+1];
+            var aSpring = new Spring(p5);
+            aSpring.set (p, q, K);
+            this.springs.push(aSpring);
+        }
+    }
+
+
+
+
+}
+
+
 var Particle = function Particle(p5) {
     this.px = 0;
     this.py = 0;
@@ -108,6 +130,7 @@ var Particle = function Particle(p5) {
             this.addForce(0, this.mass);
         }
     };
+    
 
     this.limitVelocities = function() {
         if (this.bLimitVelocities) {
@@ -192,39 +215,27 @@ const Links = () => {
         // use parent to render the canvas in this ref
         // (without that p5 will render the canvas outside of your component)
         let cnv = p5.createCanvas(500, 500).parent(canvasParentRef);
-        cnv.mousePressed((event)=>{mousePressed(p5)});
-        createParticles(p5);
-        createSpringMeshConnectingParticles(p5);
-        button1 = p5.createButton(" ");
-        button1.size(24,24);
-        button1.style("border", "none");
-        button1.style("background", "none");
-        p5.loadImage("./icon.png", img => {
-            p5.image(img, 0, 0);
-            p5.redraw();
-        })
+        
+
+        var linkedin = new Rope(200, 7, "https://www.linkedin.com/in/nullthemoment/", "LinkedIn");
+        ropes.push(linkedin);
+
+        var github = new Rope(400, 6, "https://github.com/NULLtm", "Github");
+        ropes.push(github);
+
+        for(var i = 0; i < 2; i++) {
+            ropes[i].createParticles(p5);
+            ropes[i].createSpringMeshConnectingParticles(p5);
+        }
     }
 
     const draw = (p5) => {
         p5.background (225, 225, 225);
 
-        for (var i=0; i<myParticles.length; i++) {
-            myParticles[i].update(); // update all locations
-        }
-        if (p5.mouseIsPressed && (whichParticleIsGrabbed > -1)) {
-            // If the user is grabbing a particle, peg it to the mouse.
-            myParticles[whichParticleIsGrabbed].px = p5.mouseX;
-            myParticles[whichParticleIsGrabbed].py = p5.mouseY;
-        }
-        button1.position(myParticles[nPoints-1].px+410, myParticles[nPoints-1].py+190);
-
-        for (var i=0; i<mySprings.length; i++) {
-            mySprings[i].update(); // draw all springs
+        for(var i = 0; i < 2; i++) {
+            ropes[i].update(p5);
         }
 
-        for (var i=0; i<mySprings.length; i++) {
-            mySprings[i].render(); // draw all springs
-        }
     }
 
 
