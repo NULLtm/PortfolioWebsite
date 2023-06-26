@@ -2,6 +2,7 @@ import "../styles/Projects.css";
 import axios from "axios";
 import {useState} from "react";
 import Project from "./SubComponents/Project";
+import LoadingText from "./SubComponents/LoadingText";
 import {colors} from "../colorData";
 
 const Projects = () => {
@@ -18,9 +19,13 @@ const Projects = () => {
         });
     }
 
+    const loading = () => {
+        return <LoadingText/>
+    };
+
     return (
         <div className="page projectsPage">
-            {loaded ? (
+             {loaded ? (
                 [...Array(data.length)].map((e, i) =>
                   <Project key={i.toString()} title={data[i].name}
                   status={data[i].private ? "Private" : "Public"}
@@ -30,7 +35,7 @@ const Projects = () => {
                            forks={data[i].forks_count}
                            langColor={data[i].language === null ? "Black" : colors[data[i].language].color}
                   />
-                )) : "Loading..."}
+                )) : loading()}
         </div>
     );
 }

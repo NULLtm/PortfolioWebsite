@@ -1,0 +1,9 @@
+
+.loadingText {
+    font-family: "Cascadia Mono", sans-serif;
+    color: gray;
+    font-size: 29px;
+    word-spacing: -6px;
+    text-align: center;
+    margin-top: 30%;
+}
