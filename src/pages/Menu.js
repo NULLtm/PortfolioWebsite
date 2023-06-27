@@ -25,7 +25,7 @@ const Menu = () => {
                 <div className="menuItem">
                     <Link className="menuButton" to="/links">Links</Link>
                 </div>
-                <div className="menuItem">
+                <div className="menuItem" id="resumeButton">
                     <button onClick={buttonClicked} className="menuButton">Resume</button>
                 </div>
             </div>

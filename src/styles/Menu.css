@@ -46,12 +46,17 @@
 
 .menuButton:hover {
     color: black;
+    cursor: pointer;
 }
 
 .menuButton:active {
     transition: font-size 250ms;
     font-size: 18px;
     font-weight: bold;
+}
+
+#resumeButton {
+    margin-top: 190px;
 }
 
 @keyframes blink {
