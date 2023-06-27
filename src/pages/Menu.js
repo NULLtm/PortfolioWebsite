@@ -6,6 +6,7 @@ const Menu = () => {
 
 
     const buttonClicked = (event) => {
+        window.open('resume.pdf', '_blank', 'fullscreen=yes');
     }
 
     return (
@@ -23,6 +24,9 @@ const Menu = () => {
                 </div>
                 <div className="menuItem">
                     <Link className="menuButton" to="/links">Links</Link>
+                </div>
+                <div className="menuItem">
+                    <button onClick={buttonClicked} className="menuButton">Resume</button>
                 </div>
             </div>
             <Outlet />
