@@ -5,3 +5,20 @@
 .aboutContainer {
     text-align: center;
 }
+
+#checkmark {
+    display: inline-block;
+    width: 200px;
+    opacity: 60%;
+    margin-top: 100px;
+}
+
+#endingContainer {
+
+    margin-top: 100px;
+
+    text-align: center;
+    font-size: 50px;
+    color: gray;
+    font-family: "Cascadia Mono", sans-serif;
+}

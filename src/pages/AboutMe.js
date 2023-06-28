@@ -1,9 +1,16 @@
 import '../styles/AboutMe.css'
 import OptionContainer from "./SubComponents/OptionContainer";
+import checkmarkImg from "../images/checkmark.png";
+import { Link } from 'react-router-dom';
 
 const guideText = "*please select all options";
 
 const AboutMe = () => {
+
+    const goBack = () => {
+    }
+
+
     return (
         <div className="page aboutContainer">
             <OptionContainer id="modelContainer" numOptions={1} title1="Model." title2="Which is best for you?"
@@ -30,7 +37,7 @@ const AboutMe = () => {
                              }]}
             />
             <OptionContainer id="skillContainer" numOptions={4} title1="Skills." title2="Help yourself."
-                             nextOptionContainer="Container"
+                             nextOptionContainer="endingContainer"
                              options={[{primaryLabel: "Front-End",
                                  primaryLabelSubtext: "1 yr, beginner",
                                  label1: "React",
@@ -53,7 +60,14 @@ const AboutMe = () => {
                                  label2: "8th grade - 12th",
                                  label3: "Libraries/Optimization"
                              }]}
+            
             />
+            <div id="endingContainer">
+                <div>Complete</div>
+                <Link to="/">
+                    <img id="checkmark" src={checkmarkImg} alt="CheckMark"></img>
+                </Link>
+            </div>
         </div>
     );
 }

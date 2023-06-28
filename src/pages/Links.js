@@ -211,10 +211,6 @@ var Spring = function Spring(p5) {
 const Links = () => {
 
     const preload = (p5) => {
-        p5.loadImage("./icon.png", img => {
-            p5.image(img, 0, 0);
-            p5.redraw();
-        });
     }
 
     const setup = (p5, canvasParentRef) => {
@@ -229,22 +225,18 @@ const Links = () => {
         var github = new Rope(400, 6, "https://github.com/NULLtm", "Github");
         ropes.push(github);
 
-        //for(var i = 0; i < 2; i++) {
-        //    ropes[i].createParticles(p5);
-        //    ropes[i].createSpringMeshConnectingParticles(p5);
-        //}
+        for(var i = 0; i < 2; i++) {
+            ropes[i].createParticles(p5);
+            ropes[i].createSpringMeshConnectingParticles(p5);
+        }
     }
 
     const draw = (p5) => {
-        //p5.background (0, 0, 0);
+        p5.background (225, 225, 225);
 
-       // for(var i = 0; i < 2; i++) {
-        //    ropes[i].update(p5);
-        //}
-
-        //p5.image(img, 0, 0);
-        //p5.color(0,0,0);
-        //p5.rect(0,0,50,50);
+        for(var i = 0; i < 2; i++) {
+            ropes[i].update(p5);
+        }
     }
 
 
