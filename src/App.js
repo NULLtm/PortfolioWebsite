@@ -1,14 +1,17 @@
 import './styles/App.css';
 import Menu from './pages/Menu';
 import Logo from './pages/Logo';
-import {BrowserRouter, createBrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import AboutMe from "./pages/AboutMe";
 import Projects from "./pages/Projects";
 import NoPage from "./pages/NoPage";
 import Links from "./pages/Links";
+import InProgressBar from "./pages/SubComponents/InProgressBar";
 
 function App() {
   return (
+        <>
+        <InProgressBar/>
           <HashRouter>
               <Routes>
                   <Route basemname={`/${process.env.PUBLIC_URL}`} path="/" element={<Menu/>}>
@@ -20,6 +23,7 @@ function App() {
                   </Route>
               </Routes>
           </HashRouter>
+          </>
   );
 }
 

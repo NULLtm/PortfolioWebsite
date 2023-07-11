@@ -1,0 +1,21 @@
+
+.warningBar {
+    display: inline-block;
+    width: 80%;
+    margin-left: 10%;
+    height: 60px;
+
+    background-color: rgba(255, 166, 0, 0.528);
+    border-radius: 20px;
+
+    position: fixed;
+    text-align: center;
+}
+
+.warningText {
+    display: inline-flex;
+    margin-top: 15px;
+    font-size: 22px;
+    font-family: "Cascadia Mono", serif;
+    color: rgba(37, 37, 37, 0.367)
+}
