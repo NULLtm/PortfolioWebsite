@@ -1,22 +1,25 @@
 import Option from "./Option";
 import "../../styles/OptionContainer.css";
-import {useState} from "react";
+import {forwardRef, useEffect, useRef, useState} from "react";
 import InfoComponent from "./InfoComponent";
 
 
 const OptionContainer = (props) => {
 
-    const [numSelected, setNumSelected] = useState(1);
+    const [numSelected, setNumSelected] = useState(0);
 
     const onSelect = (e, hasClicked, setHasClicked) => {
         if(!hasClicked) {
             setHasClicked(true);
             setNumSelected((prev) => prev+1);
-            if(numSelected >= props.numOptions) {
-                document.getElementById(props.nextOptionContainer).scrollIntoView();
-            }
         }
     }
+
+    useEffect(()=>{
+        if(numSelected >= props.numOptions) {
+           document.getElementById(props.next).scrollIntoView();
+        }
+    });
 
     return (
         <div className="selectorContainer" id={props.id}>
@@ -31,6 +34,8 @@ const OptionContainer = (props) => {
                             label1={props.options[i].label1}
                             label2={props.options[i].label2}
                             label3={props.options[i].label3}
+                            text={props.options[i].text}
+                            anchor={props.anchor}
                     />
                 )}
             </div>

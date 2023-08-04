@@ -7,7 +7,6 @@ const InfoComponent = (props) => {
     const [closeHovered, setCloseHovered] = useState(false);
     const [isActive, setIsActive] = useState(false);
     const refInfo = useRef(null);
-    const refClose = useRef(null);
 
     const openClicked = (e) => {
         setIsActive(true);
@@ -18,22 +17,23 @@ const InfoComponent = (props) => {
 
     const closeClicked = (e) => {
         setIsActive(false);
-        refClose.current.scrollIntoView({behavior:"smooth",block:"center",inline:"end"});
+        document.getElementById(props.anchor).scrollIntoView();
         setTimeout(()=>{refInfo.current.style.display = "none";},500);
 
     }
 
     return (
         <>
-            <button ref={refClose} className="moreInfoButton" onMouseOver={() => {setOpenHovered(true)}} onMouseLeave={() => {setOpenHovered(false)}} onClick={openClicked}
+            <button className="moreInfoButton" onMouseOver={() => {setOpenHovered(true)}} onMouseLeave={() => {setOpenHovered(false)}} onClick={openClicked}
                     style={{borderColor: isActive ? "black" : (openHovered ? "black" : "gray"), borderWidth: isActive ? "3px" : "1px"}}>+</button>
             <div className="infoParent" ref={refInfo}>
                 <svg className="infoBox">
                     <rect x="0" y="0" width="400px" height="400px" fill="none"/>
                 </svg>
+                <span className="textBox">{props.text}</span>
                 <button className="moreInfoClose" onMouseOver={() => {setCloseHovered(true)}} onMouseLeave={() => {setCloseHovered(false)}} onClick={closeClicked}
                     style={{borderColor: !isActive ? "black" : (closeHovered ? "black" : "gray"), borderWidth: !isActive ? "3px" : "1px"}}>-</button>
-            </div>
+            </div>  
 
         </>
     );

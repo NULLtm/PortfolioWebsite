@@ -1,5 +1,5 @@
 import "../../styles/Option.css";
-import {useState} from "react";
+import {forwardRef, useState} from "react";
 import InfoComponent from "./InfoComponent";
 
 const Option = (props) => {
@@ -22,7 +22,7 @@ const Option = (props) => {
                     <div>{props.label3}</div>
                 </div>
             </button>
-            <InfoComponent/>
+            <InfoComponent text={props.text} anchor={props.anchor}/>
         </>
     );
 }

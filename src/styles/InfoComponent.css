@@ -36,6 +36,13 @@
     top: -390px;
 }
 
+.textBox {
+    position: absolute;
+    left: 130px;
+    padding-top: 50px;
+    width: 50%;
+}
+
 .infoBox {
     stroke: black;
     fill: black;
