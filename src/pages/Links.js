@@ -45,7 +45,7 @@ function Rope(xPos, nPoints, link, message) {
 
         this.button = p5.createButton(this.message);
         this.button.mousePressed(this.gotoLink);
-        this.button.size(50,50);
+        this.button.size(80,50);
 
         for (var i=0; i< this.nPoints; i++) {
             var rx = this.xPos + restDis*i;
@@ -242,6 +242,7 @@ const Links = () => {
 
     return (
         <div className="page linksContainer">
+            <div>I am no artist... haha</div>
             <Sketch className="linksContainer-linkCanvas" preload={preload} setup={setup} draw={draw}>
             </Sketch>
         </div>
